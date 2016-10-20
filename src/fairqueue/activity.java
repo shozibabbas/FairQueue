@@ -12,4 +12,13 @@ package fairqueue;
 class activity {
     public String name;
     public int priority;
+    
+    activity() {
+        
+    }
+    
+    activity(String a, int b) {
+        name = a;
+        priority = b;
+    }
 }

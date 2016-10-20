@@ -74,54 +74,79 @@ public class FairQueue {
         for (Iterator<String> it = activityNames.iterator(); it.hasNext(); )
         {
             String a = it.next();
+            int priority = 0;
             switch(a) {
                 case "New User Registration":
-                    System.out.println(a);
+                    priority = 2;
                 break;
                 case "Lab Task Upload(5pm)":
+                    priority = 3;
                 break;
                 case "Course Registration":
+                    priority = 2;
                 break;  
                 case "Lecture Preparation":
+                    priority = 4;
                 break;  
                 case "Data Backup(3am-4am)":
+                    priority = 1;
                 break;  
                 case "Assignment Upload":
+                    priority = 3;
                 break;  
                 case "Lecture Download":
+                    priority = 4;
                 break;  
                 case "Assignment Submission(12am)":
+                    priority = 3;
                 break;  
                 case "Assignment Grading":
+                    priority = 4;
                 break;  
                 case "Quiz Grading":
+                    priority = 4;
                 break;  
                 case "Final Grading":
+                    priority = 4;
                 break;  
                 case "1st Student Feedback":
+                    priority = 7;
                 break;  
                 case "2nd Student Feedback":
+                    priority = 8;
                 break;  
                 case "ESE GuideLine Update":
+                    priority = 7;
                 break;  
                 case "Student Result Comments":
+                    priority = 6;
                 break;  
                 case "Project Submission(12am)":
+                    priority = 3;
                 break;  
                 case "Project Grading":
+                    priority = 4;
                 break; 
                 case "Data Backup(1am-2am)":
+                    priority = 1;
                 break; 
                 case "Project Upload Link Creation":
+                    priority = 9;
                 break; 
                 case "Maintenance":
+                    priority = 1;
                 break; 
             }
+            
+            activities.add(new activity(a, priority));
         }
+        
+        
     }
 
     public static void main(String[] args) throws ParseException {
         parsedData = new LinkedList<csvFile>();
+        activities = new LinkedList<activity>();
         
         csvParser();
         generatePriorityTable();
